@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> Overheard </title>
+    <style type="text/css">
+      * { margin: 0; padding: 0 }
+      .login { float: right; clear: none; color: black }
+      h1 { display: inline }
+      .titlebar { color: white; background: black; padding-left: 1em; }
+      .tidbits { margin: 2em; }
+      .tidbits li { padding: 0.5em;  padding-left: 0;  }
+      .tidbits li div { padding-left: 1em;  }
+      .tidbit { height: 5em; float: left; }
+      .submit_tidbit { margin: 2em; }
+      .submit_tidbit p { padding: 1em; }
+      .votecontrols { float: left }
+      .quoteid { display:none }
+      .del { float: right }      
+      .error { color: red; font-weight: bold }
+    </style>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+    <script src="/js/vote.js"></script>
+  </head>
+  <body>
+    <div class="titlebar" ><h1>Overheard</h1>
+    <span class="login" >{{ greeting }}</span>      
+    </div>
+      
+    {% if loggedin %}
+    <div class="submit_tidbit">
+      <form action="" method="post">
+        <p class="error">{{ error_msg }}</p>
+        <p><label>New Quote: <br> <textarea name="newtidbit" rows="12" cols="40">{{ text }}</textarea></label></p>
+        <p><label>Link: <input type="text" name="tidbituri" value="{{ uri }}" /></p>
+        <p><input type="submit" value="Add" /></p>
+      </form>      
+    </div>
+    {% endif %}
+
+
+  </body>
+</html> 

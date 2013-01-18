@@ -1,0 +1,19 @@
+application: just-overheard-it
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /test.*
+  script: gaeunit.py
+
+- url: /images/
+  static_dir: images
+
+- url: /js/
+  static_dir: js
+
+- url: /.*
+  script: main.py
+
+
