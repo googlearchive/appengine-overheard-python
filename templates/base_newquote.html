@@ -1,0 +1,11 @@
+    {% if loggedin %}
+    <div class="submit_tidbit">
+      <form action="/" method="post">
+        <p><label>New Quote: <br> <textarea name="newtidbit" rows="12" cols="40"></textarea></label></p>
+        <p><label>Link: <input type="text" name="tidbituri" value="" /></p>
+        <p><input type="submit" value="Add" /></p>
+      </form>      
+    </div>
+    {% endif %}
+
+

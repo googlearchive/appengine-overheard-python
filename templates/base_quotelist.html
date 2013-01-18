@@ -1,0 +1,57 @@
+        
+    <table class="tidbits">
+      {% for quote in quotes %}
+
+      <tr class="tidbit">    
+
+        <td class="index"><a href="/quote/{{ quote.id }}">{{ quote.index }}</a></td>
+
+        <td>
+        {% ifequal quote.voted -1 %}
+          <img src="/images/down.png" class="votedown">
+        {% else %}
+          <img src="/images/down-grey.png" class="votedown">
+        {% endifequal %} 
+        </td>
+
+        <td>
+        {% ifequal quote.voted 1 %}
+          <img src="/images/up.png" class="voteup"/>
+        {% else %}
+          <img src="/images/up-grey.png" class="voteup"/>            
+        {% endifequal %}
+        </td>
+
+        <td class="quote">
+        {% if quote.uri %}
+          <a href="{{ quote.uri|escape }}"><span class="quoteid">{{ quote.id }}</span> {{ quote.quote|escape }} </a><br>              
+        {% else %}
+          <span class="quoteid">{{ quote.id }}</span> {{ quote.quote|escape }} <br>              
+        {% endif %}            
+        </td>
+
+        <td class="del">
+        {% ifequal quote.creator loggedin %}
+            <form action="/quote/{{ quote.id }}" method="post">
+             <input type="hidden" name="_method" value="delete" />
+             <input type="submit" value="Delete" />
+            </form>        
+        {% endifequal %}        
+        </td>
+
+      </tr>
+      {% endfor %}
+    </table>
+
+    <p class="next">
+    {% if prevuri %}
+      <a href="{{ prevuri }}">Previous</a>
+    {% endif %}
+
+
+    {% if nexturi %}
+      <a href="{{ nexturi }}">Next</a> 
+    {% endif %}
+    </p>
+
+

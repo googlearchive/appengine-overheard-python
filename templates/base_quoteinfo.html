@@ -1,0 +1,9 @@
+    
+  <table class="quoteinfo">
+  {% for quote in quotes %}
+    <tr><th>Votes:</th>  <td>{{ quote.votesum }}</td></tr>
+    <tr><th>Created:</th>  <td>{{ quote.created }}</td></tr>
+  {% endfor %}
+  </table>
+  
+
